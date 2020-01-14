@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"net/url"
 )
+var visited = make(map[string]bool)
 
 func main() {
 	fmt.Println("Hello, world")
