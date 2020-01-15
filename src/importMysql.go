@@ -1,15 +1,22 @@
-ackage main
+package main
 
 import (
+	_ "github.com/go-sql-driver/mysql" //mysql的驱动包
 	"database/sql"
 	"fmt"
 	//"time"
-
-	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
-	db, err := sql.Open("mysql", "astaxie:astaxie@/test?charset=utf8")
+	/*DSN数据源名称
+          [username[:password]@][protocol[(address)]]/dbname[?param1=value1¶mN=valueN]
+          user@unix(/path/to/socket)/dbname
+          user:password@tcp(localhost:5555)/dbname?charset=utf8&autocommit=true
+          user:password@tcp([de:ad:be:ef::ca:fe]:80)/dbname?charset=utf8mb4,utf8
+          user:password@/dbname
+          无数据库: user:password@/
+	 */
+	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/goproject?charset=utf8")
 	checkErr(err)
 
 	//插入数据
